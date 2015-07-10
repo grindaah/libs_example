@@ -1,0 +1,17 @@
+arm-linux-androideabi-g++ -fpie \
+-fno-exceptions \
+-ffunction-sections \
+-march=armv7-a  \
+-DANDROID \
+-D__GNU_SOURCE=1 \
+--sysroot=/tmp/my-android-toolchain/sysroot \
+-Wl,-rpath-link=/tmp/my-android-toolchain/arm-linux-androideabi/lib \
+-lcrystax \
+-I/tmp/my-android-toolchain/sysroot/usr/include  \
+-o android/sample main.cc \
+-Wl,--gc-sections \
+-nostdlib \
+-rdynamic \
+-L./android  \
+-l_main \
+-pie
